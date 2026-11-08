@@ -4,7 +4,7 @@ English | [繁體中文](README.zh-TW.md)
 
 An AI agent skill for finding gameplay ideas, reviewing player experience, and turning development roadblocks into testable design hypotheses.
 
-Use it for early prototypes or updates to an existing game. Seasonal advice is adapted to the project's genre and constraints. The skill instructions are written in Traditional Chinese and direct the agent to respond in the user's language.
+Use it for early prototypes or updates to an existing game. Seasonal advice is adapted to the project's genre and constraints. The skill instructions are written in English. Responses follow the user's language or explicit language preference.
 
 ## Install
 

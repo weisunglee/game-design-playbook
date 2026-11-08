@@ -5,75 +5,78 @@ description: Help unblock game development with gameplay ideas, first-five-minut
 
 # Game Design Playbook
 
-協助開發者從玩家體驗找出瓶頸，產出可試玩的下一步。預設用使用者語言回答。
+Help developers identify bottlenecks in the player experience and define a playable next step.
 
-來源與演講時間戳見 [README](https://github.com/weisunglee/game-design-playbook/blob/main/README.zh-TW.md#演講重點)。演講以 PoE 賽季制 ARPG 為例；下列流程是轉化後的設計方法，並非逐字指令或成功保證。
+## Response language
 
-## 1. 找出要驗證的瓶頸
+Respond in the user's language, following any explicit language preference. Otherwise, use the language of their current request. Apply this to explanations, tables, questions, and deliverables. The English language of these instructions does not determine the response language.
 
-從現有描述取得：遊戲類型、目標玩家、核心循環、開發階段、卡住的具體情境、團隊與時間限制。
-缺少資訊時，先提出有標示的暫定假設並繼續；只詢問會改變方案的關鍵問題。
+For the source and talk timestamps, see the [README](https://github.com/weisunglee/game-design-playbook#talk-takeaways). The talk uses PoE's seasonal ARPG model as its example. The workflow below adapts its ideas into design methods; it is neither a transcript nor a guarantee of success.
 
-把瓶頸寫成一句玩家情境，例如：「玩家第二趟探索仍做相同選擇，因此不期待再出發。」區分玩法重複、目標模糊、回饋薄弱、入口過慢、範圍失控、或價值難以傳達；以使用者資料標示已知證據與推測。
+## 1. Identify the bottleneck to test
 
-完成條件：有一個具體玩家問題、一個待驗證假設與明確資源上限。
+Extract the genre, target players, core loop, development stage, specific sticking point, team size, and time constraints from the available context. When information is missing, state provisional assumptions and continue. Ask only for information that would materially change the recommendation.
 
-## 2. 提出三個不同的體驗方向
+Describe the bottleneck as one player situation, such as: "On their second expedition, players make the same choices and have little reason to look forward to another run." Identify whether the issue involves repetitive play, unclear goals, weak feedback, a slow opening, excessive scope, or difficulty communicating value. Distinguish evidence supplied by the user from inference.
 
-每個方向寫出：玩家幻想、反覆進行的動作與選擇、五分鐘內能玩的差異、獎勵用途、短期目標與結束條件。
-讓三個方向改變不同的決策或行為，而非只換故事皮膚。優先組合既有資產與規則；只在新內容能解決已指出的問題時擴充範圍。
+Completion criterion: one concrete player problem, one hypothesis to test, and an explicit resource limit.
 
-用表格比較玩家感受、所需新資產、技術依賴、製作成本與最大未知。成本以相對級距或明示假設估算。
-推薦一個最適合目前限制的方向，說明選擇理由與放棄的取捨。
+## 2. Propose three distinct experience directions
 
-完成條件：三個方向可區分，且推薦方案對應步驟 1 的假設。
+For each direction, describe the player fantasy, repeated actions and choices, a playable difference within five minutes, the purpose of rewards, a short-term goal, and an endpoint.
 
-## 3. 檢查方案是否形成完整體驗
+Make the directions change different decisions or behaviors rather than only their story framing. Prefer combinations of existing assets and rules. Expand scope only when the added content addresses the identified problem.
 
-逐項標示「已有設計／缺口／不適用及原因」：
+Compare player experience, new assets, technical dependencies, production cost, and the largest unknown in a table. Estimate cost using relative categories or explicit assumptions. Recommend the direction that best fits the constraints, explaining the reasoning and tradeoffs.
 
-| 檢查 | 要回答的問題 |
+Completion criterion: three distinguishable directions and a recommendation that addresses the hypothesis from step 1.
+
+## 3. Check whether the design forms a complete experience
+
+Mark each item as "designed," "gap," or "not applicable," with a reason:
+
+| Check | Questions to answer |
 | --- | --- |
-| 新起點 | 新玩家或回鍋玩家如何進入？只有適合賽季經濟的遊戲才評估進度重置，並說明保留與轉移規則 |
-| 新機制 | 五分鐘內如何體驗？之後如何持續變化，而不只是出現一次？ |
-| 主題與動機 | 玩家在替誰、為何行動？故事、角色與表現如何支援玩法？語音依資源評估 |
-| 獨特獎勵 | 獎勵開啟什麼選擇？是否只是增加數字？是否讓舊內容失去用途？ |
-| 操作與策略 | 新玩法改變哪些反覆動作或構築決策？ |
-| 長期目標 | 玩家能看見哪條成長路線？原型只需驗證最短的一段 |
-| 完成感 | 哪個挑戰或成果代表這一輪已經完成？依類型選用頭目、解謎、作品或探索里程碑 |
+| Fresh start | How do new or returning players enter? Consider progression resets only where a seasonal economy fits the game; explain what is retained and transferred. |
+| New mechanic | How is it playable within five minutes? How does it keep varying throughout the experience rather than appearing once? |
+| Theme and motivation | Who are players acting for, and why? How do story, characters, and presentation support play? Evaluate voice acting against available resources. |
+| Distinct rewards | What choices do rewards unlock? Do they only increase numbers? Do they remove the reason to play older content? |
+| Actions and strategy | Which repeated actions or build decisions change? |
+| Long-term goal | What visible progression track can players pursue? A prototype needs to validate only its shortest meaningful segment. |
+| Completion | What challenge or outcome marks the end of this run? Depending on the genre, use a boss, puzzle, creation, or exploration milestone. |
 
-有既有玩家時，另評估改動會失去哪些熟練感、操作習慣與既有投入；需要時提出可回復原型或獨立模式比較。
-單機或早期原型保留適用的設計目的，無須為湊齊 PoE 清單而加入賽季、配裝或經濟系統。
+For an existing audience, assess how changes affect mastery, control habits, and prior investment. Where useful, propose a reversible prototype or a comparison with a separate mode.
 
-完成條件：所有項目有結論，最大的體驗缺口已列入原型驗證。
+For single-player games or early prototypes, preserve the relevant design purposes. Add seasons, builds, or economy systems only when they serve the project.
 
-## 4. 先寫能被驗證的展示，再縮成原型
+Completion criterion: every item has a conclusion, and the prototype will test the largest experience gap.
 
-用一句話說明玩家會做什麼以及值得期待的原因，再寫一段短展示流程：先呈現最有趣的實際互動，再沿玩家旅程說明選擇、結果與下一個目標。
-把宣傳句當作待驗證的體驗承諾。若只能寫「豐富內容」等空泛形容，回頭具體化玩法。
-保留穩定性、可讀性、無障礙與必要教學的工作，即使它們不適合當宣傳亮點。
+## 4. Write a testable demonstration, then scope the prototype
 
-列出最小原型的場景、互動、回饋、可沿用或暫代的素材，以及明確延期的功能。
-提供前五分鐘流程，讓核心差異實際可玩。已有程式修改授權才實作；規劃請求交付方案即可。
+Explain in one sentence what players will do and why it is worth anticipating. Then outline a short demonstration: lead with the most interesting actual interaction, and follow the player's journey through choices, consequences, and the next goal.
 
-完成條件：原型能測試主要假設，且在資源上限內形成一段從開始到結果的完整循環。
+Treat promotional wording as an experience promise to test. If it relies on vague phrases such as "rich content," make the gameplay more concrete. Preserve work on stability, readability, accessibility, and essential onboarding even when it is not a promotional highlight.
 
-## 5. 用試玩決定下一步
+List the minimal prototype's scenes, interactions, feedback, reusable or placeholder assets, and explicitly deferred features. Describe the first five minutes so the core difference is playable. Implement only when code changes are within the user's authorization; a planning request calls for a plan.
 
-先定觀察與判斷，再安排一次有實際觀眾的試玩里程碑；日期未知則給相對時程。公開發表、邀請或發訊息依使用者實際授權執行。
+Completion criterion: the prototype tests the main hypothesis and contains a complete loop from entry to outcome within the resource limit.
 
-至少列出三個可觀察訊號，例如首次理解核心選擇的時間、是否主動嘗試另一策略、是否能說出下一個目標。為本次原型提出有標示的暫定成功門檻，避免把它當通用產業標準。
-同時寫出：什麼結果支持繼續、什麼結果需要修改、什麼結果應縮減或停止這個方向。
-未執行試玩時，明確稱為計畫，不宣稱已驗證好玩。
+## 5. Use playtesting to choose the next step
 
-若規劃既有遊戲的發表，可延伸提出預告、實機展示、試講與問答；依受眾調整時程與劇透範圍。賽季遊戲觀察回流與滿足離場；其他類型依自身目標選指標。
+Define observations and decision criteria before proposing a playtest milestone with an actual audience. Use a relative schedule when dates are unknown. Publish, invite people, or send messages only within the user's actual authorization.
 
-## 交付格式
+Specify at least three observable signals, such as time to understand the core choice, voluntarily trying another strategy, or being able to name the next goal. Propose explicitly provisional success thresholds for this prototype, rather than presenting them as universal industry standards.
 
-1. 瓶頸與假設：區分已知、推測及限制。
-2. 三方向比較與一個推薦方案。
-3. 體驗檢查：列出缺口與不適用項目的理由。
-4. 一句體驗承諾、前五分鐘流程、最小原型與延期清單。
-5. 試玩觀察、暫定門檻、外部里程碑，以及繼續／修改／停止條件。
+State which results support continuing, which call for revision, and which suggest reducing scope or stopping this direction. Until playtesting happens, label it as a plan and keep claims of validated enjoyment pending.
 
-標示「演講觀點」與「依專案延伸的建議」。完成時，開發者應能知道下一個要做的可玩片段，以及它要回答哪個問題。
+When planning an existing game's announcement, optionally propose a teaser, gameplay demonstration, rehearsal, and Q&A. Adapt timing and spoiler boundaries to the audience. For seasonal games, observe return visits and satisfied departures; select appropriate goals for other genres.
+
+## Deliverable format
+
+1. Bottleneck and hypothesis: distinguish known facts, inferences, and constraints.
+2. A comparison of three directions and one recommendation.
+3. An experience check covering gaps and reasons for items marked not applicable.
+4. A one-sentence experience promise, a first-five-minute flow, a minimal prototype, and a deferred-feature list.
+5. Playtest observations, provisional thresholds, an external milestone, and criteria to continue, revise, or stop.
+
+Distinguish the speaker's views from project-specific adaptations. On completion, the developer should know which playable segment to build next and which question it will answer.
