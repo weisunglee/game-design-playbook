@@ -1,0 +1,144 @@
+# Game Design Playbook
+
+[English](README.md) | 繁體中文
+
+把遊戲開發瓶頸轉成可測試的設計假設：一個協助尋找玩法靈感、檢查玩家體驗與規劃更新的 AI agent skill。
+
+主要語言為繁體中文。適用於早期遊戲原型與既有遊戲更新；賽季制建議會依遊戲類型調整。
+
+## 參考來源
+
+- [Jonathan Rogers 演講影片：YouTube](https://www.youtube.com/watch?v=GHEBkhT1K7A)
+- 講者於影片開頭自我介紹為《Path of Exile 2》的遊戲總監。
+- 本專案根據該影片的英文自動字幕整理，時間戳供回看定位；專有名詞與數字可能有辨識誤差。
+
+這是非官方的重點整理與方法轉化，與講者及 Grinding Gear Games 無隸屬或背書關係。未收錄完整字幕。下列「演講重點」轉述講者觀點；skill 中的原型實驗、評估表與小型團隊流程是本專案的延伸方法，不代表講者原話或普遍成功保證。
+
+## 演講重點
+
+### 1. 更新要讓玩家真正感受到不同（01:36–15:07）
+
+講者提出 PoE 賽季更新的七項清單：
+
+| 項目 | 玩家得到什麼 |
+| --- | --- |
+| 重置經濟與角色進度 | 新起點，以及重新探索配裝的機會；舊角色仍保留於舊環境 |
+| 五分鐘內出現、貫穿流程的新機制 | 回來就能感到這次不同 |
+| 有故事且有語音的新角色 | 理解自己在替誰、為何而行動 |
+| 獨特的新獎勵系統 | 值得參與的理由，通常透過製作機制提供差異 |
+| 新的角色構築（build） | 改變反覆操作的方式 |
+| 新的長期成長路線 | 改變追求的目標 |
+| 新的頂級挑戰／頭目 | 明確知道自己完成了這次內容 |
+
+重點在「選對要製作的內容」。新增整章劇情可能很費工，但回鍋玩家得先玩好幾小時才能看到；較小的新機制若很早出現並持續影響玩法，反而更能傳達新鮮感。新章節仍有價值，兩者服務不同階段的玩家。
+
+### 2. 平衡調整會影響玩家的熟練感（02:56–04:59）
+
+玩家投入的不只是裝備數字，也包含操作習慣與能力感。改動既有角色可能讓人感到自己突然不會玩。賽季新起點可以重設期待，給大幅調整更合適的時機；這不等於所有遊戲都應清空進度。
+
+### 3. 主題與故事會改變相似玩法的感受（09:13–10:39）
+
+同樣是站在場地內擊退敵人，「與危險人物賭命」和「協助工匠研究遺跡」會帶來不同的體驗。角色、動機、表現與語音共同建立玩家幻想。全語音是講者在其製作環境下的強烈建議；小團隊可以先驗證角色動機與呈現是否有效。
+
+### 4. 獎勵要有獨特用途，避免只比數字（10:42–12:09）
+
+每次多掉一點裝備會不斷墊高期待。獨特的製作選項與構築可能性，比單純增加掉落更有機會創造差異。把舊內容的獨家獎勵搬進新內容，也可能讓舊內容失去存在理由。
+
+### 5. 先試著介紹遊戲，再決定做什麼（23:27–26:37）
+
+講者由遊戲總監親自撰寫發表腳本，藉此檢查功能是否值得期待、是否缺少重點，並協助刪減範圍。可以把它理解為設計檢驗：你能否具體展示玩家將做什麼、為什麼有趣？它不能取代實際遊玩測試，也不表示穩定性、無障礙等基礎工作沒有價值。
+
+### 6. 宣傳本身也是玩家體驗的一部分（26:41–37:07）
+
+PoE 的做法是發售前三週預告、前一週集中發表，中間以便利性改善等內容維持期待；發表前約三天向媒體試講，檢查誤解。展示時直接進入遊戲、先放最精彩的內容，沿玩家旅程解釋機制，之後用即時問答處理疑慮，坦白說明決策。
+
+具體時程、保留創作者首次反應，以及只保留頂級頭目戰的防劇透策略，屬於講者的產品與受眾經驗。劇情遊戲與小型團隊應另行判斷。
+
+### 7. 外部展示日期能幫助收斂開發（37:50–39:08）
+
+「月底完成」和「月底有人會親自玩」會帶來不同的工作焦點。可展示、可試玩的里程碑能迫使團隊串起整段體驗。對小團隊，可先安排可信任朋友的短時間試玩，再決定是否公開。
+
+### 8. 你眼中的改進，可能是玩家眼中的另一款遊戲（39:10–41:46）
+
+PoE 2 為了改善單技能重複操作，連動調整技能、節奏、翻滾與移動方式。即使開發者認為這是在改善原有願景，熟悉舊作的玩家仍可能認為核心體驗被改變。重大改動應先測試對原有玩家的影響，再決定整合、獨立模式或續作。
+
+### 9. 讓玩家滿足地離開，才有機會期待回來（41:48–47:22）
+
+講者用「賽季活躍」而非只看每日活躍來描述其目標：玩家玩幾週、達成目標、休息，下一季再回來。清楚的終點可以幫助玩家在倦怠前停下。每次賽季都要重新贏得玩家興趣，不能把既有玩家當成必然回流。
+
+這是講者對其營運模式的區分，不是業界對 live service 的統一定義。
+
+## 遇到瓶頸時怎麼用
+
+先問：**下一次開啟遊戲，玩家能在五分鐘內感受到哪一個不同？**
+
+例如做的是探索遊戲，可以先試「每次帶回一件遺物，會改變下次探索的路線」，用一張小地圖驗證選擇是否有趣。先測玩家是否改變決策，再決定是否製作更多地圖。這是本專案的延伸示例。
+
+## 安裝與呼叫
+
+將 `skills/game-design-playbook/` 整個資料夾複製到 agent 的 skills 目錄，例如 Codex 的 `~/.codex/skills/` 或專案的 `.codex/skills/`，保留內部結構。依使用的工具重新載入 skills。
+
+呼叫範例：
+
+```text
+使用 $game-design-playbook。
+我正在做一款單人探索遊戲，核心是採集與回家升級。
+目前瓶頸是每趟探索都差不多。我一個人開發，想先用兩天做原型。
+請提出三個不同方向，選一個最小可玩實驗，並給我前五分鐘的玩家流程。
+```
+
+skill 會交付：瓶頸假設、三個方向比較、建議方案、最小原型、觀察指標與下一步判斷。
+
+## 指令安裝（Codex）
+
+需要先安裝 Git。以下兩種方式擇一，請使用尚未存在的 skill 目標資料夾。
+
+### 個人全域安裝
+
+適用於所有專案。
+
+**macOS / Linux（Bash）**
+
+```bash
+task_skill_source=$(mktemp -d)
+git clone https://github.com/weisunglee/game-design-playbook.git "$task_skill_source"
+mkdir -p "$HOME/.codex/skills"
+cp -R "$task_skill_source/skills/game-design-playbook" "$HOME/.codex/skills/"
+```
+
+**Windows（PowerShell）**
+
+```powershell
+$skillSource = Join-Path ([IO.Path]::GetTempPath()) ("game-design-playbook-" + [guid]::NewGuid())
+git clone https://github.com/weisunglee/game-design-playbook.git $skillSource
+New-Item -ItemType Directory -Force -Path "$HOME/.codex/skills" | Out-Null
+Copy-Item -Recurse -LiteralPath (Join-Path $skillSource 'skills/game-design-playbook') -Destination "$HOME/.codex/skills/"
+```
+
+### 單一專案安裝
+
+先切換到專案根目錄，再執行對應指令。
+
+**macOS / Linux（Bash）**
+
+```bash
+task_skill_source=$(mktemp -d)
+git clone https://github.com/weisunglee/game-design-playbook.git "$task_skill_source"
+mkdir -p .codex/skills
+cp -R "$task_skill_source/skills/game-design-playbook" .codex/skills/
+```
+
+**Windows（PowerShell）**
+
+```powershell
+$skillSource = Join-Path ([IO.Path]::GetTempPath()) ("game-design-playbook-" + [guid]::NewGuid())
+git clone https://github.com/weisunglee/game-design-playbook.git $skillSource
+New-Item -ItemType Directory -Force -Path .codex/skills | Out-Null
+Copy-Item -Recurse -LiteralPath (Join-Path $skillSource 'skills/game-design-playbook') -Destination .codex/skills/
+```
+
+### 確認、使用與更新
+
+確認個人目錄或專案目錄中存在 `.codex/skills/game-design-playbook/SKILL.md`。重新啟動 Codex 或開啟新工作階段，在技能選單確認 `game-design-playbook`，再輸入前面的呼叫範例。
+
+這些指令複製的是單次快照。更新時先取得新版 repo，比較後更新已安裝的 skill 資料夾。已有安裝時請勿直接重複複製，以免產生巢狀資料夾。專案安裝可將 skill 資料夾提交到版本控制，供團隊共用。來源 clone 保留於系統暫存目錄；skill 本身不需安裝遊戲引擎或執行安裝程式。

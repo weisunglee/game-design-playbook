@@ -7,7 +7,7 @@ description: Help unblock game development with gameplay ideas, first-five-minut
 
 協助開發者從玩家體驗找出瓶頸，產出可試玩的下一步。預設用使用者語言回答。
 
-來源與演講時間戳見 [README](https://github.com/weisunglee/game-design-playbook#演講重點)。演講以 PoE 賽季制 ARPG 為例；下列流程是轉化後的設計方法，並非逐字指令或成功保證。
+來源與演講時間戳見 [README](https://github.com/weisunglee/game-design-playbook/blob/main/README.zh-TW.md#演講重點)。演講以 PoE 賽季制 ARPG 為例；下列流程是轉化後的設計方法，並非逐字指令或成功保證。
 
 ## 1. 找出要驗證的瓶頸
 

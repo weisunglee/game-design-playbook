@@ -1,88 +1,142 @@
 # Game Design Playbook
 
-把遊戲開發瓶頸轉成可測試的設計假設：一個協助尋找玩法靈感、檢查玩家體驗與規劃更新的 AI agent skill。
+English | [繁體中文](README.zh-TW.md)
 
-主要語言為繁體中文。適用於早期遊戲原型與既有遊戲更新；賽季制建議會依遊戲類型調整。
+An AI agent skill for finding gameplay ideas, reviewing player experience, and turning development roadblocks into testable design hypotheses.
 
-## 參考來源
+Use it for early prototypes or updates to an existing game. Seasonal advice is adapted to the project's genre and constraints. The skill instructions are written in Traditional Chinese and direct the agent to respond in the user's language.
 
-- [Jonathan Rogers 演講影片：YouTube](https://www.youtube.com/watch?v=GHEBkhT1K7A)
-- 講者於影片開頭自我介紹為《Path of Exile 2》的遊戲總監。
-- 本專案根據該影片的英文自動字幕整理，時間戳供回看定位；專有名詞與數字可能有辨識誤差。
+## Install
 
-這是非官方的重點整理與方法轉化，與講者及 Grinding Gear Games 無隸屬或背書關係。未收錄完整字幕。下列「演講重點」轉述講者觀點；skill 中的原型實驗、評估表與小型團隊流程是本專案的延伸方法，不代表講者原話或普遍成功保證。
+The commands below install the skill for Codex. They require Git. Choose either a personal installation, available across projects, or a project installation, available in one repository.
 
-## 演講重點
+### Personal installation
 
-### 1. 更新要讓玩家真正感受到不同（01:36–15:07）
+Copy the skill into Codex's personal skills directory. Use a destination that does not already contain another copy of this skill.
 
-講者提出 PoE 賽季更新的七項清單：
+**macOS / Linux (Bash)**
 
-| 項目 | 玩家得到什麼 |
-| --- | --- |
-| 重置經濟與角色進度 | 新起點，以及重新探索配裝的機會；舊角色仍保留於舊環境 |
-| 五分鐘內出現、貫穿流程的新機制 | 回來就能感到這次不同 |
-| 有故事且有語音的新角色 | 理解自己在替誰、為何而行動 |
-| 獨特的新獎勵系統 | 值得參與的理由，通常透過製作機制提供差異 |
-| 新的角色構築（build） | 改變反覆操作的方式 |
-| 新的長期成長路線 | 改變追求的目標 |
-| 新的頂級挑戰／頭目 | 明確知道自己完成了這次內容 |
-
-重點在「選對要製作的內容」。新增整章劇情可能很費工，但回鍋玩家得先玩好幾小時才能看到；較小的新機制若很早出現並持續影響玩法，反而更能傳達新鮮感。新章節仍有價值，兩者服務不同階段的玩家。
-
-### 2. 平衡調整會影響玩家的熟練感（02:56–04:59）
-
-玩家投入的不只是裝備數字，也包含操作習慣與能力感。改動既有角色可能讓人感到自己突然不會玩。賽季新起點可以重設期待，給大幅調整更合適的時機；這不等於所有遊戲都應清空進度。
-
-### 3. 主題與故事會改變相似玩法的感受（09:13–10:39）
-
-同樣是站在場地內擊退敵人，「與危險人物賭命」和「協助工匠研究遺跡」會帶來不同的體驗。角色、動機、表現與語音共同建立玩家幻想。全語音是講者在其製作環境下的強烈建議；小團隊可以先驗證角色動機與呈現是否有效。
-
-### 4. 獎勵要有獨特用途，避免只比數字（10:42–12:09）
-
-每次多掉一點裝備會不斷墊高期待。獨特的製作選項與構築可能性，比單純增加掉落更有機會創造差異。把舊內容的獨家獎勵搬進新內容，也可能讓舊內容失去存在理由。
-
-### 5. 先試著介紹遊戲，再決定做什麼（23:27–26:37）
-
-講者由遊戲總監親自撰寫發表腳本，藉此檢查功能是否值得期待、是否缺少重點，並協助刪減範圍。可以把它理解為設計檢驗：你能否具體展示玩家將做什麼、為什麼有趣？它不能取代實際遊玩測試，也不表示穩定性、無障礙等基礎工作沒有價值。
-
-### 6. 宣傳本身也是玩家體驗的一部分（26:41–37:07）
-
-PoE 的做法是發售前三週預告、前一週集中發表，中間以便利性改善等內容維持期待；發表前約三天向媒體試講，檢查誤解。展示時直接進入遊戲、先放最精彩的內容，沿玩家旅程解釋機制，之後用即時問答處理疑慮，坦白說明決策。
-
-具體時程、保留創作者首次反應，以及只保留頂級頭目戰的防劇透策略，屬於講者的產品與受眾經驗。劇情遊戲與小型團隊應另行判斷。
-
-### 7. 外部展示日期能幫助收斂開發（37:50–39:08）
-
-「月底完成」和「月底有人會親自玩」會帶來不同的工作焦點。可展示、可試玩的里程碑能迫使團隊串起整段體驗。對小團隊，可先安排可信任朋友的短時間試玩，再決定是否公開。
-
-### 8. 你眼中的改進，可能是玩家眼中的另一款遊戲（39:10–41:46）
-
-PoE 2 為了改善單技能重複操作，連動調整技能、節奏、翻滾與移動方式。即使開發者認為這是在改善原有願景，熟悉舊作的玩家仍可能認為核心體驗被改變。重大改動應先測試對原有玩家的影響，再決定整合、獨立模式或續作。
-
-### 9. 讓玩家滿足地離開，才有機會期待回來（41:48–47:22）
-
-講者用「賽季活躍」而非只看每日活躍來描述其目標：玩家玩幾週、達成目標、休息，下一季再回來。清楚的終點可以幫助玩家在倦怠前停下。每次賽季都要重新贏得玩家興趣，不能把既有玩家當成必然回流。
-
-這是講者對其營運模式的區分，不是業界對 live service 的統一定義。
-
-## 遇到瓶頸時怎麼用
-
-先問：**下一次開啟遊戲，玩家能在五分鐘內感受到哪一個不同？**
-
-例如做的是探索遊戲，可以先試「每次帶回一件遺物，會改變下次探索的路線」，用一張小地圖驗證選擇是否有趣。先測玩家是否改變決策，再決定是否製作更多地圖。這是本專案的延伸示例。
-
-## 安裝與呼叫
-
-將 `skills/game-design-playbook/` 整個資料夾複製到 agent 的 skills 目錄，例如 Codex 的 `~/.codex/skills/` 或專案的 `.codex/skills/`，保留內部結構。依使用的工具重新載入 skills。
-
-呼叫範例：
-
-```text
-使用 $game-design-playbook。
-我正在做一款單人探索遊戲，核心是採集與回家升級。
-目前瓶頸是每趟探索都差不多。我一個人開發，想先用兩天做原型。
-請提出三個不同方向，選一個最小可玩實驗，並給我前五分鐘的玩家流程。
+```bash
+task_skill_source=$(mktemp -d)
+git clone https://github.com/weisunglee/game-design-playbook.git "$task_skill_source"
+mkdir -p "$HOME/.codex/skills"
+cp -R "$task_skill_source/skills/game-design-playbook" "$HOME/.codex/skills/"
 ```
 
-skill 會交付：瓶頸假設、三個方向比較、建議方案、最小原型、觀察指標與下一步判斷。
+**Windows (PowerShell)**
+
+```powershell
+$skillSource = Join-Path ([IO.Path]::GetTempPath()) ("game-design-playbook-" + [guid]::NewGuid())
+git clone https://github.com/weisunglee/game-design-playbook.git $skillSource
+New-Item -ItemType Directory -Force -Path "$HOME/.codex/skills" | Out-Null
+Copy-Item -Recurse -LiteralPath (Join-Path $skillSource 'skills/game-design-playbook') -Destination "$HOME/.codex/skills/"
+```
+
+The resulting file should be `~/.codex/skills/game-design-playbook/SKILL.md`. This is a snapshot: review a newer version before updating the installed folder. Avoid copying over an existing installation without reviewing its contents, as recursive copying can create nested directories. The source clone is left in your system's temporary directory.
+
+### Project installation
+
+Run these commands from your project's root. They clone the source into a temporary directory and copy only the skill into `.codex/skills/`. Use a destination that does not already contain another copy of this skill.
+
+**macOS / Linux (Bash)**
+
+```bash
+task_skill_source=$(mktemp -d)
+git clone https://github.com/weisunglee/game-design-playbook.git "$task_skill_source"
+mkdir -p .codex/skills
+cp -R "$task_skill_source/skills/game-design-playbook" .codex/skills/
+```
+
+**Windows (PowerShell)**
+
+```powershell
+$skillSource = Join-Path ([IO.Path]::GetTempPath()) ("game-design-playbook-" + [guid]::NewGuid())
+git clone https://github.com/weisunglee/game-design-playbook.git $skillSource
+New-Item -ItemType Directory -Force -Path .codex/skills | Out-Null
+Copy-Item -Recurse -LiteralPath (Join-Path $skillSource 'skills/game-design-playbook') -Destination .codex/skills/
+```
+
+The resulting file should be `.codex/skills/game-design-playbook/SKILL.md`. This is a snapshot: update it by reviewing and copying a newer version from this repository. Commit the skill folder if you want to share it with your team. The temporary source clone is left in your system's temporary directory.
+
+### Verify and invoke
+
+Restart Codex or open a new session after installation. Look for `game-design-playbook` in the skill picker, then invoke it explicitly:
+
+```text
+Use $game-design-playbook.
+I'm building a single-player exploration game about gathering resources
+and returning home to upgrade. Each expedition feels too similar.
+I'm a solo developer and have two days for a prototype.
+Suggest three distinct directions, recommend one minimal playable experiment,
+and describe the player's first five minutes.
+```
+
+The skill produces a bottleneck hypothesis, three design directions, a recommendation, a minimal prototype plan, playtest observations, and criteria for the next decision. It does not run an installer or require game-engine dependencies.
+
+## Source
+
+- [Jonathan Rogers' talk on YouTube](https://www.youtube.com/watch?v=GHEBkhT1K7A)
+- The speaker introduces himself as the game director of *Path of Exile 2*.
+- These notes were prepared from the video's automatically generated English subtitles. Timestamps help locate relevant passages; names and numbers may contain transcription errors.
+
+This is an unofficial summary and practical adaptation, with no affiliation with or endorsement from the speaker or Grinding Gear Games. The full transcript is not included. The takeaways below paraphrase the speaker's views. The skill's prototype experiments, evaluation tables, and small-team workflow are this project's extensions, rather than quotations or guarantees of success.
+
+## Talk takeaways
+
+### 1. Make an update feel different to play (01:36–15:07)
+
+The speaker presents seven elements of a PoE seasonal release:
+
+| Element | What it gives players |
+| --- | --- |
+| Reset the economy and character progression | A fresh start and room to explore builds again; old characters remain in the previous environment |
+| Introduce a mechanic within five minutes and carry it through the experience | An immediate, recurring sense that this release is different |
+| Add a voiced character with a story | Someone to engage with and a reason to act |
+| Provide a distinct reward system | A reason to participate, often through new crafting possibilities |
+| Enable new builds | A change to the actions players repeat |
+| Add a new long-term progression track | A different goal to pursue |
+| Include a new pinnacle challenge or boss | A clear sense of having completed the content |
+
+The emphasis is on choosing what to build. An entire new act can take substantial effort while remaining hours away from a returning player's first session. A smaller mechanic that appears early and affects the whole journey can communicate freshness sooner. New acts still matter; they serve a different stage of the experience.
+
+### 2. Balance changes affect players' sense of competence (02:56–04:59)
+
+Players invest in habits and mastery as well as equipment. Changing an existing character can make familiar skills feel unreliable. A seasonal fresh start can reset expectations and provide a better moment for major adjustments. This does not mean every game should erase progress.
+
+### 3. Theme and story change how similar mechanics feel (09:13–10:39)
+
+Fighting waves of enemies can feel different when framed as gambling with a dangerous figure or helping a craftsperson investigate ancient ruins. Characters, motives, presentation, and voice work establish the player fantasy. Full voice acting is the speaker's strong recommendation in his production context; small teams can first test whether the motivation and presentation work.
+
+### 4. Give rewards distinct uses instead of only bigger numbers (10:42–12:09)
+
+Increasing drops each release raises expectations. Unique crafting options and build possibilities can create differences beyond quantity. Moving an older activity's exclusive rewards into new content can remove the reason to play that older activity.
+
+### 5. Try explaining the game before deciding what to build (23:27–26:37)
+
+The game directors write the announcement script to test whether features sound exciting, identify gaps, and reduce scope. Treat this as a design check: can you show what players will do and why it matters? It complements playtesting. Stability, accessibility, and other foundational work still have value even when they are not announcement highlights.
+
+### 6. Marketing shapes the player experience (26:41–37:07)
+
+PoE's approach includes a teaser three weeks before release, a main reveal one week before release, and quality-of-life previews in between. A press presentation roughly three days before the reveal helps expose misunderstandings. The reveal gets straight to gameplay, leads with strong material, explains the player's journey, and uses live Q&A to address concerns honestly.
+
+The timing, preserving creators' first reactions, and limiting spoiler protection mainly to the pinnacle boss fight reflect the speaker's product and audience. Story-driven games and small teams should make their own choices.
+
+### 7. External demonstrations help focus development (37:50–39:08)
+
+Finishing this month creates a different focus from knowing that someone will play it this month. A demonstrable, playable milestone pushes a team to connect the whole experience. A small team can start with a short playtest for trusted friends before considering a public showing.
+
+### 8. Your improvement may feel like a different game to existing players (39:10–41:46)
+
+To move beyond repeated use of a single skill, PoE 2 changed interconnected systems: skills, pacing, dodging, and movement. Developers may see these as better execution of the original vision, while established players experience a change to the fundamentals. Test that impact before choosing an integrated update, a separate mode, or a sequel.
+
+### 9. Let players leave satisfied and look forward to returning (41:48–47:22)
+
+The speaker emphasizes seasonal activity over daily activity alone: players can play for a few weeks, achieve their goals, rest, and return next season. Clear endpoints can help them stop before burnout. Every season must earn their interest again.
+
+This distinction describes the speaker's operating model; it is not a universal industry definition of live service.
+
+## When development feels stuck
+
+Start with: **What difference can players experience within five minutes of opening the game again?**
+
+For an exploration game, try a rule such as “each recovered relic changes the routes available on the next expedition.” Test it on one small map. Observe whether players make different decisions before committing to more maps. This is an example developed for this project.
