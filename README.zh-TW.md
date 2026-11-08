@@ -74,11 +74,35 @@ PoE 2 為了改善單技能重複操作，連動調整技能、節奏、翻滾�
 
 例如做的是探索遊戲，可以先試「每次帶回一件遺物，會改變下次探索的路線」，用一張小地圖驗證選擇是否有趣。先測玩家是否改變決策，再決定是否製作更多地圖。這是本專案的延伸示例。
 
-## 安裝與呼叫
+## 一行指令安裝
 
-將 `skills/game-design-playbook/` 整個資料夾複製到 agent 的 skills 目錄，例如 Codex 的 `~/.codex/skills/` 或專案的 `.codex/skills/`，保留內部結構。依使用的工具重新載入 skills。
+先安裝 Node.js/npm 與 Git，然後在終端機執行（Windows、macOS、Linux 通用）：
 
-呼叫範例：
+```bash
+npx skills add weisunglee/game-design-playbook
+```
+
+依提示選擇使用的 agent 與安裝範圍。若要直接全域安裝給 Codex，使用：
+
+```bash
+npx skills add weisunglee/game-design-playbook --skill game-design-playbook --agent codex --global --yes
+```
+
+若只安裝到單一專案，先切換到專案根目錄，並移除 `--global`。
+
+確認安裝與檢查更新：
+
+```bash
+npx skills list --global
+npx skills check
+npx skills update
+```
+
+`skills update` 會更新由此 CLI 管理的已安裝 skills。其他選項見 [Skills CLI 官方說明](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)。
+
+## 呼叫方式
+
+若尚未看到 skill，重新啟動 agent 或開啟新工作階段，再輸入：
 
 ```text
 使用 $game-design-playbook。
@@ -88,57 +112,3 @@ PoE 2 為了改善單技能重複操作，連動調整技能、節奏、翻滾�
 ```
 
 skill 會交付：瓶頸假設、三個方向比較、建議方案、最小原型、觀察指標與下一步判斷。
-
-## 指令安裝（Codex）
-
-需要先安裝 Git。以下兩種方式擇一，請使用尚未存在的 skill 目標資料夾。
-
-### 個人全域安裝
-
-適用於所有專案。
-
-**macOS / Linux（Bash）**
-
-```bash
-task_skill_source=$(mktemp -d)
-git clone https://github.com/weisunglee/game-design-playbook.git "$task_skill_source"
-mkdir -p "$HOME/.codex/skills"
-cp -R "$task_skill_source/skills/game-design-playbook" "$HOME/.codex/skills/"
-```
-
-**Windows（PowerShell）**
-
-```powershell
-$skillSource = Join-Path ([IO.Path]::GetTempPath()) ("game-design-playbook-" + [guid]::NewGuid())
-git clone https://github.com/weisunglee/game-design-playbook.git $skillSource
-New-Item -ItemType Directory -Force -Path "$HOME/.codex/skills" | Out-Null
-Copy-Item -Recurse -LiteralPath (Join-Path $skillSource 'skills/game-design-playbook') -Destination "$HOME/.codex/skills/"
-```
-
-### 單一專案安裝
-
-先切換到專案根目錄，再執行對應指令。
-
-**macOS / Linux（Bash）**
-
-```bash
-task_skill_source=$(mktemp -d)
-git clone https://github.com/weisunglee/game-design-playbook.git "$task_skill_source"
-mkdir -p .codex/skills
-cp -R "$task_skill_source/skills/game-design-playbook" .codex/skills/
-```
-
-**Windows（PowerShell）**
-
-```powershell
-$skillSource = Join-Path ([IO.Path]::GetTempPath()) ("game-design-playbook-" + [guid]::NewGuid())
-git clone https://github.com/weisunglee/game-design-playbook.git $skillSource
-New-Item -ItemType Directory -Force -Path .codex/skills | Out-Null
-Copy-Item -Recurse -LiteralPath (Join-Path $skillSource 'skills/game-design-playbook') -Destination .codex/skills/
-```
-
-### 確認、使用與更新
-
-確認個人目錄或專案目錄中存在 `.codex/skills/game-design-playbook/SKILL.md`。重新啟動 Codex 或開啟新工作階段，在技能選單確認 `game-design-playbook`，再輸入前面的呼叫範例。
-
-這些指令複製的是單次快照。更新時先取得新版 repo，比較後更新已安裝的 skill 資料夾。已有安裝時請勿直接重複複製，以免產生巢狀資料夾。專案安裝可將 skill 資料夾提交到版本控制，供團隊共用。來源 clone 保留於系統暫存目錄；skill 本身不需安裝遊戲引擎或執行安裝程式。

@@ -8,59 +8,33 @@ Use it for early prototypes or updates to an existing game. Seasonal advice is a
 
 ## Install
 
-The commands below install the skill for Codex. They require Git. Choose either a personal installation, available across projects, or a project installation, available in one repository.
-
-### Personal installation
-
-Copy the skill into Codex's personal skills directory. Use a destination that does not already contain another copy of this skill.
-
-**macOS / Linux (Bash)**
+With Node.js/npm and Git installed, run this single command in your terminal (Windows, macOS, or Linux):
 
 ```bash
-task_skill_source=$(mktemp -d)
-git clone https://github.com/weisunglee/game-design-playbook.git "$task_skill_source"
-mkdir -p "$HOME/.codex/skills"
-cp -R "$task_skill_source/skills/game-design-playbook" "$HOME/.codex/skills/"
+npx skills add weisunglee/game-design-playbook
 ```
 
-**Windows (PowerShell)**
-
-```powershell
-$skillSource = Join-Path ([IO.Path]::GetTempPath()) ("game-design-playbook-" + [guid]::NewGuid())
-git clone https://github.com/weisunglee/game-design-playbook.git $skillSource
-New-Item -ItemType Directory -Force -Path "$HOME/.codex/skills" | Out-Null
-Copy-Item -Recurse -LiteralPath (Join-Path $skillSource 'skills/game-design-playbook') -Destination "$HOME/.codex/skills/"
-```
-
-The resulting file should be `~/.codex/skills/game-design-playbook/SKILL.md`. This is a snapshot: review a newer version before updating the installed folder. Avoid copying over an existing installation without reviewing its contents, as recursive copying can create nested directories. The source clone is left in your system's temporary directory.
-
-### Project installation
-
-Run these commands from your project's root. They clone the source into a temporary directory and copy only the skill into `.codex/skills/`. Use a destination that does not already contain another copy of this skill.
-
-**macOS / Linux (Bash)**
+Follow the prompts to choose your agent and installation scope. For a global Codex installation without interactive selection:
 
 ```bash
-task_skill_source=$(mktemp -d)
-git clone https://github.com/weisunglee/game-design-playbook.git "$task_skill_source"
-mkdir -p .codex/skills
-cp -R "$task_skill_source/skills/game-design-playbook" .codex/skills/
+npx skills add weisunglee/game-design-playbook --skill game-design-playbook --agent codex --global --yes
 ```
 
-**Windows (PowerShell)**
+For a project installation, run the command from the project root and omit `--global`.
 
-```powershell
-$skillSource = Join-Path ([IO.Path]::GetTempPath()) ("game-design-playbook-" + [guid]::NewGuid())
-git clone https://github.com/weisunglee/game-design-playbook.git $skillSource
-New-Item -ItemType Directory -Force -Path .codex/skills | Out-Null
-Copy-Item -Recurse -LiteralPath (Join-Path $skillSource 'skills/game-design-playbook') -Destination .codex/skills/
+Verify installation and check for updates:
+
+```bash
+npx skills list --global
+npx skills check
+npx skills update
 ```
 
-The resulting file should be `.codex/skills/game-design-playbook/SKILL.md`. This is a snapshot: update it by reviewing and copying a newer version from this repository. Commit the skill folder if you want to share it with your team. The temporary source clone is left in your system's temporary directory.
+`skills update` updates installed skills managed by the CLI. See the [official Skills CLI reference](https://github.com/vercel-labs/skills/blob/main/docs/commands.md) for options.
 
-### Verify and invoke
+### Invoke
 
-Restart Codex or open a new session after installation. Look for `game-design-playbook` in the skill picker, then invoke it explicitly:
+Restart your agent or open a new session if the skill is not yet visible, then ask:
 
 ```text
 Use $game-design-playbook.
@@ -71,7 +45,7 @@ Suggest three distinct directions, recommend one minimal playable experiment,
 and describe the player's first five minutes.
 ```
 
-The skill produces a bottleneck hypothesis, three design directions, a recommendation, a minimal prototype plan, playtest observations, and criteria for the next decision. It does not run an installer or require game-engine dependencies.
+The skill produces a bottleneck hypothesis, three design directions, a recommendation, a minimal prototype plan, playtest observations, and criteria for the next decision.
 
 ## Source
 
